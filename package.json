@@ -1,0 +1,58 @@
+{
+	"name": "NBARealTimeScore",
+	"displayName": "NBA real-time score",
+	"description": "",
+	"publisher": "liyangjj",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.NBARealTimeScore"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.NBARealTimeScore",
+				"title": "get NBA real-time score"
+			},
+			{
+				"command": "extension.NBARealTimeScore.off",
+				"title": "exit NBA real-time score"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.NBARealTimeScore",
+				"key": "ctrl+shift+l"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{"command": "extension.NBARealTimeScore"}
+			]
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"eslint": "^5.13.0",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kevinLiJ/NBARealTimeScore.git"
+	  },
+	"dependencies": {
+		"crawler": "^1.2.1"
+	}
+}
