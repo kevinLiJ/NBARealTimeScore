@@ -11,16 +11,15 @@ function activate(context) {
 
 	const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left)
 	statusBarItem.command = 'extension.NBARealTimeScore.off'
-	statusBarItem.tooltip  = '点击退出 NBARealTimeScore'
+	statusBarItem.tooltip = '点击退出 NBARealTimeScore'
 	context.subscriptions.push(vscode.commands.registerCommand('extension.NBARealTimeScore', function () {
-
 		statusBarItem.show()
-			getNBAInfo((text) => {
-				statusBarItem.text = text
-			})
+		getNBAInfo((text) => {
+			statusBarItem.text = text
+		})
 	}));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.NBARealTimeScore.off', function () {
-		if(timer){
+		if (timer) {
 			clearInterval(timer)
 		}
 		statusBarItem.text = ''
