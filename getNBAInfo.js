@@ -33,4 +33,8 @@ function getNBAInfo(callback) {
 	}, 3000)
 }
 
-module.exports = { getNBAInfo, timer }
+function getTimer(){
+	return timer
+}
+
+module.exports = { getNBAInfo, getTimer }

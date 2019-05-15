@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const getNBAInfo = require('./getNBAInfo').getNBAInfo
-const timer = require('./getNBAInfo').timer
+const getTimer = require('./getNBAInfo').getTimer
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -19,9 +19,8 @@ function activate(context) {
 		})
 	}));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.NBARealTimeScore.off', function () {
-		if (timer) {
-			clearInterval(timer)
-		}
+		console.log(getTimer())
+			clearInterval(getTimer())
 		statusBarItem.text = ''
 	}));
 }
