@@ -1,16 +1,19 @@
 {
 	"name": "NBARealTimeScore",
 	"displayName": "NBA real-time score",
-	"description": "",
+	"description": "实时获取当天NBA比赛比分，并显示在vscode下方状态栏左侧。你可以边搬砖边关注NBA",
 	"publisher": "liyangjj",
 	"icon": "images/icon.png",
-	"version": "0.0.1",
+	"version": "0.0.2",
+	"categories": [
+        "Other"
+    ],
+    "keywords": [
+        "NBA", "nba", "sport", "score", "live", "real time"
+    ],
 	"engines": {
 		"vscode": "^1.33.0"
 	},
-	"categories": [
-		"Other"
-	],
 	"activationEvents": [
 		"onCommand:extension.NBARealTimeScore"
 	],
