@@ -8,6 +8,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Initial release
   
-
-## [0.1.1]
+## [1.0.0] - 2017-06-20
+### Changed
 - 修复不能实时更新的bug
