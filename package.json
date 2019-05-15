@@ -34,7 +34,9 @@
 		],
 		"menus": {
 			"editor/context": [
-				{"command": "extension.NBARealTimeScore"}
+				{
+					"command": "extension.NBARealTimeScore"
+				}
 			]
 		}
 	},
@@ -52,7 +54,7 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/kevinLiJ/NBARealTimeScore.git"
-	  },
+	},
 	"dependencies": {
 		"crawler": "^1.2.1"
 	}

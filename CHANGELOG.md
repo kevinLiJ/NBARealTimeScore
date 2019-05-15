@@ -7,3 +7,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 - Initial release
+  
+
+## [0.1.1]
+- 修复不能实时更新的bug
