@@ -19,8 +19,7 @@ function activate(context) {
 		})
 	}));
 	context.subscriptions.push(vscode.commands.registerCommand('extension.NBARealTimeScore.off', function () {
-		console.log(getTimer())
-			clearInterval(getTimer())
+		clearInterval(getTimer())
 		statusBarItem.text = ''
 	}));
 }
