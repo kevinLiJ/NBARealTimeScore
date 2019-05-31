@@ -2,25 +2,28 @@ const Crawler = require('crawler')
 const Match = require('./match')
 
 let timer = null
+let matchesList = []
 function getNBAInfo(callback) {
+	matchesList = []
 	const c = new Crawler()
 	function A() {
 		let isAllFinish = true
 		c.queue([{
-			url: 'https://nba.hupu.com/games', callback: (error, res, done) => {
+			url: 'https://nba.hupu.com/games',
+			callback: (error, res, done) => {
 				if (!error) {
 					const $ = res.$;
-
-					const resultArr = []
+					let matchesInfoList = []
 					const matches = $(".list_box")
 					for (let i = 0; i < matches.length; i++) {
-						const match = new Match(matches.eq(i).find('.team_vs'))
+						const match = new Match(matches.eq(i))
 						if (match.matchStatus !== 2) {
 							isAllFinish = false
 						}
-						resultArr.push(match.matchInfo)
+						matchesList.push(match)
+						matchesInfoList.push(match.matchInfo)
 					}
-					callback(resultArr.join('  ||  '))
+					callback(matchesInfoList.join('  ||  '))
 				}
 				done()
 				if (!isAllFinish) {
@@ -39,7 +42,11 @@ function getTimer() {
 	return timer
 }
 
-module.exports = { getNBAInfo, getTimer }
+function getMatches() {
+	return matchesList
+}
+
+module.exports = { getNBAInfo, getTimer, getMatches }
 
 
 

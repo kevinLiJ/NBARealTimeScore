@@ -6,11 +6,16 @@
 	"icon": "images/icon.png",
 	"version": "0.0.2",
 	"categories": [
-        "Other"
-    ],
-    "keywords": [
-        "NBA", "nba", "sport", "score", "live", "real time"
-    ],
+		"Other"
+	],
+	"keywords": [
+		"NBA",
+		"nba",
+		"sport",
+		"score",
+		"live",
+		"real time"
+	],
 	"engines": {
 		"vscode": "^1.33.0"
 	},
@@ -27,6 +32,10 @@
 			{
 				"command": "extension.NBARealTimeScore.off",
 				"title": "exit NBA real-time score"
+			},
+			{
+				"command": "extension.NBARealTimeScore.showMenu",
+				"title": "Get a live text list"
 			}
 		],
 		"keybindings": [
