@@ -15,3 +15,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.0.2] 
 ### Changed
 - 修复退出时的bug
+
+
+## [0.0.2] 
+### add
+- 添加试试文字直播
+- 添加赛后数据统计
+- 彩蛋，自行探索

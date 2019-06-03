@@ -38,7 +38,7 @@ function activate(context) {
 		}
 		vscode.window.showQuickPick([...matchesList,{label: '退出插件', code:'exit'}]).then(selectedMatch => {
 			// 根据选项打开直播页 或者退出
-			if(selectedMatch.code === 'exit'){
+			if(selectedMatch && selectedMatch.code === 'exit'){
 				vscode.commands.executeCommand('extension.NBARealTimeScore.off');
 				return
 			}

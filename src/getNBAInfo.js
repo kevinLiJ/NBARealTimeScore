@@ -4,10 +4,10 @@ const Match = require('./match')
 let timer = null
 let matchesList = []
 function getNBAInfo(callback) {
-	matchesList = []
 	const c = new Crawler()
 	function A() {
 		let isAllFinish = true
+		matchesList = []
 		c.queue([{
 			url: 'https://nba.hupu.com/games',
 			callback: (error, res, done) => {
@@ -28,7 +28,6 @@ function getNBAInfo(callback) {
 				done()
 				if (!isAllFinish) {
 					timer = setTimeout(() => {
-						console.log(1)
 						A()
 					}, 3000)
 				}

@@ -22,7 +22,6 @@ module.exports = class Match {
         this.liveUrl = this.$matchDom.find('.table_choose a:last-child').attr('href')
         this.dataStatisticsUrl = this.$matchDom.find('.table_choose a:first-child').attr('href')
         this.label = `${this.team1Name} - ${this.team2Name}`
-        console.log(this.liveUrl)
         if (this.matchTime.indexOf('未开始') > -1) {
             // 未开始，不显示比分
             this.matchInfo = `${this.label}   ${this.matchTime}`

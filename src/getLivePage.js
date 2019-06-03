@@ -99,7 +99,7 @@ module.exports = class getLivePage {
         }])
     }
 
-    generateHtml(liveHtml,dataStatisticsHtml) {
+    generateHtml(liveHtml,dataStatisticsHtml = '') {
         const templateHtml = fs.readFileSync(path.join(__dirname, './template.html'))
         let resHtml =  templateHtml.toString().replace('${liveHtml}', liveHtml)
         return resHtml.replace('${dataStatisticsHtml}',dataStatisticsHtml)
