@@ -17,7 +17,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - 修复退出时的bug
 
 
-## [0.0.2] 
+## [0.0.3] 
 ### add
 - 添加试试文字直播
 - 添加赛后数据统计
