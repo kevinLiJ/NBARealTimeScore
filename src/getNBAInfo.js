@@ -2,10 +2,12 @@ const Crawler = require('crawler')
 const Match = require('./match')
 
 let timer = null
+// 比赛列表
 let matchesList = []
 function getNBAInfo(callback) {
 	const c = new Crawler()
 	function A() {
+		// 是否所有比赛都已结束
 		let isAllFinish = true
 		matchesList = []
 		c.queue([{
@@ -13,19 +15,23 @@ function getNBAInfo(callback) {
 			callback: (error, res, done) => {
 				if (!error) {
 					const $ = res.$;
+					// 比赛信息列表
 					let matchesInfoList = []
 					const matches = $(".list_box")
 					for (let i = 0; i < matches.length; i++) {
 						const match = new Match(matches.eq(i))
-						if (match.matchStatus !== 2) {
+						if (match.matchStatus === 2) {
+							// 任意一场比赛没有结束，则为false
 							isAllFinish = false
 						}
 						matchesList.push(match)
 						matchesInfoList.push(match.matchInfo)
 					}
+					// 把所有比赛的比分信息拼接成字符串，传给CB，用于显示在左下角菜单栏
 					callback(matchesInfoList.join('  ||  '))
 				}
 				done()
+				// 如果比赛全部结束，则停止获取比赛信息
 				if (!isAllFinish) {
 					timer = setTimeout(() => {
 						A()
