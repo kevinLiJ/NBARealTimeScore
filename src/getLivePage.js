@@ -46,25 +46,26 @@ module.exports = class getLivePage {
                     // localResourceRoots: [vscode.Uri.file(path.join(extensionPath, 'media'))]
                 }
             );
-            this.currentPanel.onDidDispose(() =>{
+            this.currentPanel.onDidDispose(() => {
                 this.isDisposed = true
                 clearTimeout(this.timer)
             })
             this.currentPanel.onDidChangeViewState(
                 e => {
 
-                  const panel = e.webviewPanel;
-                  
-                  panel.title = panel.visible ? this.match.label : temptList[Math.floor(Math.random() * 10 - 1)] || '...'
+                    const panel = e.webviewPanel;
+
+                    //   panel.title = panel.visible ? this.match.label : temptList[Math.floor(Math.random() * 10 - 1)] || '...'
+                    panel.title = 'README.md'
                 }
-              );
+            );
         }
         this.setPanelHtml()
-        
-        
+
+
     }
 
-    setPanelHtml(){
+    setPanelHtml() {
         const c = new Crawler()
         c.queue([{
             url: this.url,
@@ -74,7 +75,7 @@ module.exports = class getLivePage {
                     const isFinish = $('.yuece_num_b a:first-child').text().indexOf('直播') < 0
                     const liveHtml = $(".gamecenter_content_l .table_list_live:last-child table").html()
 
-                    if(isFinish) {
+                    if (isFinish) {
                         c.queue([{
                             url: this.match.dataStatisticsUrl,
                             callback: (error, res, done) => {
@@ -82,16 +83,18 @@ module.exports = class getLivePage {
                                     const $ = res.$;
                                     const dataStatisticsHtml1 = $(".gamecenter_content_l .table_list_live").eq(0).html()
                                     const dataStatisticsHtml2 = $(".gamecenter_content_l .table_list_live").eq(1).html()
-                                    this.currentPanel.webview.html = this.generateHtml(liveHtml, dataStatisticsHtml1 +''+ dataStatisticsHtml2)
+                                    this.currentPanel.webview.html = this.generateHtml(liveHtml, dataStatisticsHtml1 + '' + dataStatisticsHtml2)
                                 }
                                 done()
                             }
                         }])
                         return
                     }
+                    console.log(1);
+                    
                     this.currentPanel.webview.html = this.generateHtml(liveHtml)
-                    this.timer = setTimeout(() =>{
-                            this.setPanelHtml()
+                    this.timer = setTimeout(() => {
+                        this.setPanelHtml()
                     }, 3000)
                 }
                 done()
@@ -99,10 +102,10 @@ module.exports = class getLivePage {
         }])
     }
 
-    generateHtml(liveHtml,dataStatisticsHtml = '') {
+    generateHtml(liveHtml, dataStatisticsHtml = '') {
         const templateHtml = fs.readFileSync(path.join(__dirname, './template.html'))
-        let resHtml =  templateHtml.toString().replace('${liveHtml}', liveHtml)
-        return resHtml.replace('${dataStatisticsHtml}',dataStatisticsHtml)
+        let resHtml = templateHtml.toString().replace('${liveHtml}', liveHtml)
+        return resHtml.replace('${dataStatisticsHtml}', dataStatisticsHtml)
     }
 }
 
