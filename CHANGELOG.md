@@ -22,3 +22,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - 添加试试文字直播
 - 添加赛后数据统计
 - 彩蛋，自行探索
+
+## [1.0.1] 
+### add
+- 添加无比赛提醒
