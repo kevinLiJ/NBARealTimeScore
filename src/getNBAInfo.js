@@ -18,6 +18,13 @@ function getNBAInfo(callback) {
 					// 比赛信息列表
 					let matchesInfoList = []
 					const matches = $(".list_box")
+					console.log(matches.length);
+					if(matches.length === 0){
+						callback('今日没有比赛喔 -_-')
+						done()
+						return
+					}
+					if(matches.length)
 					for (let i = 0; i < matches.length; i++) {
 						const match = new Match(matches.eq(i))
 						if (match.matchStatus === 2) {
