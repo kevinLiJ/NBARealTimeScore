@@ -26,3 +26,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [1.0.1] 
 ### add
 - 添加无比赛提醒
+
+## [1.0.2] 
+### Changed
+- 修改比赛过多时，状态栏比赛信息显示bug

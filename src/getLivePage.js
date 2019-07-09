@@ -90,7 +90,6 @@ module.exports = class getLivePage {
                         }])
                         return
                     }
-                    console.log(1);
                     
                     this.currentPanel.webview.html = this.generateHtml(liveHtml)
                     this.timer = setTimeout(() => {
