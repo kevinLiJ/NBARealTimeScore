@@ -1,73 +1,36 @@
 {
-	"name": "NBARealTimeScore",
-	"displayName": "NBA real-time score",
-	"description": "实时获取当天NBA比赛比分，并显示在vscode下方状态栏左侧；更可以观看实时文字直播。你可以边搬砖边关注NBA",
-	"publisher": "liyangjj",
-	"icon": "images/icon.png",
-	"version": "1.0.2",
+	"name": "nba-real-time-score",
+	"displayName": "NBA real time score",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.37.0"
+	},
 	"categories": [
 		"Other"
 	],
-	"keywords": [
-		"NBA",
-		"nba",
-		"sport",
-		"score",
-		"live",
-		"real time"
-	],
-	"engines": {
-		"vscode": "^1.33.0"
-	},
 	"activationEvents": [
-		"onCommand:extension.NBARealTimeScore"
+		"onCommand:extension.helloWorld"
 	],
-	"main": "./extension.js",
+	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "extension.NBARealTimeScore",
-				"title": "get NBA real-time score"
-			},
-			{
-				"command": "extension.NBARealTimeScore.off",
-				"title": "exit NBA real-time score"
-			},
-			{
-				"command": "extension.NBARealTimeScore.showMenu",
-				"title": "Get a live text list"
-			}
-		],
-		"keybindings": [
-			{
-				"command": "extension.NBARealTimeScore",
-				"key": "ctrl+shift+l"
-			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"command": "extension.NBARealTimeScore"
-				}
-			]
-		}
+		"commands": [{
+			"command": "extension.helloWorld",
+			"title": "Hello World"
+		}]
 	},
 	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
 		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "node ./node_modules/vscode/bin/test"
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
 		"typescript": "^3.3.1",
 		"vscode": "^1.1.28",
-		"eslint": "^5.13.0",
+		"tslint": "^5.12.1",
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/kevinLiJ/NBARealTimeScore.git"
-	},
-	"dependencies": {
-		"crawler": "^1.2.1"
 	}
 }
