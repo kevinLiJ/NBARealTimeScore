@@ -12,4 +12,4 @@
 ## 退出插件
 ### 点击状态栏左侧的nba信息，选择退出插件即可
 
-> 有任何意见，欢迎您点击存储库，在github上提issues
+> 有任何意见，欢迎您点击存储库，在github上提[issue](https://github.com/kevinLiJ/NBARealTimeScore/issues)
