@@ -30,3 +30,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [1.0.2] 
 ### Changed
 - 修改比赛过多时，状态栏比赛信息显示bug
+
+
+## [1.0.4] 
+### Changed
+- 增加比赛结果信息
+- 细节优化

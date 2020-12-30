@@ -27,7 +27,7 @@ function getNBAInfo(callback) {
 					if(matches.length)
 					for (let i = 0; i < matches.length; i++) {
 						const match = new Match(matches.eq(i))
-						if (match.matchStatus === 2) {
+						if (match.matchStatus === 'ING') {
 							// 任意一场比赛没有结束，则为false
 							isAllFinish = false
 						}
@@ -35,14 +35,16 @@ function getNBAInfo(callback) {
 						
 						matchesInfoList.push(match.matchInfo)
 					}
-					const matchesInfoStr = matchesInfoList.join('  ||  ')
+					const matchesInfoStr = matchesInfoList.join('  ')
 					// 把所有比赛的比分信息拼接成字符串，传给CB，用于显示在左下角菜单栏
 					callback(matchesInfoStr.length > 100 ? matchesInfoStr.slice(0,70) + '...' : matchesInfoStr)
 				}
 				done()
 				// 如果比赛全部结束，则停止获取比赛信息
+						console.log('isAllFinish',isAllFinish);
 				if (!isAllFinish) {
 					timer = setTimeout(() => {
+						console.log('123');
 						A()
 					}, 3000)
 				}

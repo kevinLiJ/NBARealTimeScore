@@ -7,27 +7,67 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        h2 {
+            padding: 0;
+            margin: 0;
+        }
+
         table {
             border-collapse: collapse;
             margin: 0 auto;
         }
-        table tr{
+
+        table tr {
             background-color: transparent !important;
         }
+
         table td {
             border: 1px solid #ccc;
             padding: 10px 5px;
             font-size: 14px;
         }
-        .tips_layes{
+
+        .tips_layes {
             display: none;
+        }
+
+        .team_vs_box {
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .team_a,
+        .team_b {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team_a .message,
+        .team_b .message {
+            margin-left: 20px;
+        }
+
+        .about_fonts {
+            margin: 0 auto;
+            font-size: 12px;
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .about_fonts p {
+            margin-right: 20px;
         }
     </style>
 </head>
 
 <body>
-        ${dataStatisticsHtml}
-        <br>
+    ${dataStatisticsHtml}
+    <br>
     <table>
         <!-- <tbody>
              <tr id="1559265054793" style="background-color: rgb(255, 255, 255);">
