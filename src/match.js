@@ -9,7 +9,7 @@ module.exports = class Match {
         // 1未开始 2进行中 3已结束
         this.matchStatus = ''
         this.matchTime = ''
-        this.matchInfo = ''
+        this.matchTitle = ''
         this.liveUrl = ''
         this.dataStatisticsUrl = ''
         this.init()
@@ -23,7 +23,7 @@ module.exports = class Match {
         
         if (this.matchTime.indexOf('未开始') > -1) {
             // 未开始，不显示比分
-            this.matchInfo = `${this.team1Name} - ${this.team2Name}`
+            this.matchTitle = `${this.team1Name} - ${this.team2Name}`
             this.matchStatus = 'PENDING'
             this.label = `${this.team1Name} - ${this.team2Name}   ${this.matchStatus}`
             
@@ -39,7 +39,8 @@ module.exports = class Match {
             this.team2Score = this.$matchDom.find(`.team_vs_a .team_vs_a_2 .txt span:first-child`).text().replace(/[\r\n]/g, '')
             this.team1Score = this.$matchDom.find(`.team_vs_a .team_vs_a_1 .txt span:first-child`).text().replace(/[\r\n]/g, '')
             this.label = `${this.team1Name} - ${this.team2Name}  (${this.team1Score} : ${this.team2Score})     ${this.matchStatus}`
-            this.matchInfo = `${this.team1Name} - ${this.team2Name}`
+            this.matchTitle = `${this.team1Name} - ${this.team2Name}`
+            this.score = `${this.team1Score} - ${this.team2Score}`
         }
 
     }

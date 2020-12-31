@@ -43,12 +43,11 @@ function activate(context) {
 	function showGameQuickPick(){
 		// 选项中只包括直播中或直播完的比赛，不包括未开始的
 		let matchesList = getMatches().filter(match => match.matchStatus !== 'PENDING')
-		
 		// 有比赛但是直播页对象为空时，
 		if (matchesList.length !== 0 && Object.keys(getLivePagesInfo).length === 0) {
 			// 根据比赛列表初始化直播页
 			matchesList.map(match => {
-				getLivePagesInfo[match.label] = new getLivePage(match)
+				getLivePagesInfo[match.matchTitle] = new getLivePage(match)
 			})
 		}
 		
@@ -61,9 +60,8 @@ function activate(context) {
 				vscode.commands.executeCommand('extension.NBARealTimeScore.off');
 				return
 			}
-			console.log(getLivePagesInfo);
 			// 根据选择的比赛显示直播页
-			getLivePagesInfo[selectedMatch.label].start()
+			getLivePagesInfo[selectedMatch.matchTitle].start()
 
 
 		});

@@ -59,7 +59,7 @@ module.exports = class getLivePage {
 
 					const panel = e.webviewPanel;
 
-					  panel.title = panel.visible ? this.match.matchInfo : temptList[Math.floor(Math.random() * 10 - 1)] || '...'
+					  panel.title = panel.visible ? this.match.matchTitle : temptList[Math.floor(Math.random() * 10 - 1)] || '...'
 					// panel.title = 'README.md'
 				}
 			);
