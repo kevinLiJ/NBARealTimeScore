@@ -33,7 +33,7 @@ function getNBAInfo(callback) {
 						}
 						matchesList.push(match)
 						
-						matchesInfoList.push(`${match.matchTitle}(${match.score})`)
+						matchesInfoList.push(`${match.matchTitle} ${match.score ? `(${match.score})` : ''}`)
 					}
 					const matchesInfoStr = matchesInfoList.join('  ')
 					// 把所有比赛的比分信息拼接成字符串，传给CB，用于显示在左下角菜单栏
