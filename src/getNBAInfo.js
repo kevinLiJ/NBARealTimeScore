@@ -31,6 +31,10 @@ function getNBAInfo(callback) {
 							// 任意一场比赛没有结束，则为false
 							isAllFinish = false
 						}
+						// 排除异常的比赛
+						if(!match.liveUrl) {
+							continue
+						}
 						matchesList.push(match)
 						
 						matchesInfoList.push(`${match.matchTitle} ${match.score ? `(${match.score})` : ''}`)
