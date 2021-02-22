@@ -30,14 +30,14 @@ function activate(context) {
 
 	context.subscriptions.push(vscode.commands.registerCommand('extension.NBARealTimeScore.showMenu', function () {
 		// 如果已经暂停获取数据，则重新获取一次新数据
-		// if(!getTimer()) {
-		// 	getNBAInfo((text) => {
-		// 		statusBarItem.text = text
-		// 		showGameQuickPick()
-		// 	})
-		// }else {
+		if(!getTimer()) {
+			getNBAInfo((text) => {
+				statusBarItem.text = text
+				showGameQuickPick()
+			})
+		}else {
 			showGameQuickPick()
-		// }
+		}
 	}));
 
 	function showGameQuickPick(){

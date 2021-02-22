@@ -59,7 +59,7 @@ module.exports = class getLivePage {
 
 					const panel = e.webviewPanel;
 
-					  panel.title = panel.visible ? this.match.matchTitle : temptList[Math.floor(Math.random() * 10 - 1)] || '...'
+					panel.title = panel.visible ? this.match.matchTitle : temptList[Math.floor(Math.random() * 10 - 1)] || '...'
 					// panel.title = 'README.md'
 				}
 			);
@@ -74,34 +74,38 @@ module.exports = class getLivePage {
 		c.queue([{
 			url: this.url,
 			callback: (error, res, done) => {
-				if (!error) {
-					const $ = res.$;
-					const isFinish = $('.yuece_num_b a:first-child').text().indexOf('直播') < 0
-					const liveHtml = $(".gamecenter_content_l .table_list_live:last-child table").html()
-
-					if (isFinish) {
-						c.queue([{
-							url: this.match.dataStatisticsUrl,
-							callback: (error, res, done) => {
-								if (!error) {
-									const $ = res.$;
-									const dataStatisticsHtml1 = $(".gamecenter_content_l .table_list_live").eq(0).html()
-									const dataStatisticsHtml2 = $(".gamecenter_content_l .table_list_live").eq(1).html()
-									const teamVS = $(".team_vs").html()
-									this.currentPanel.webview.html = this.generateHtml('', teamVS + '' + dataStatisticsHtml1 + '' + dataStatisticsHtml2)
-								}
-								done()
-							}
-						}])
-						return
-					}
-
-					this.currentPanel.webview.html = this.generateHtml(liveHtml)
-					this.timer = setTimeout(() => {
-						console.log('setPanelHtml');
-						this.setPanelHtml()
-					}, 3000)
+				if (error) {
+					return
 				}
+
+				const $ = res.$;
+				const isFinish = $('.yuece_num_b a:first-child').text().indexOf('直播') < 0
+				const liveHtml = $(".gamecenter_content_l .table_list_live:last-child table").html()
+
+				// if (isFinish) {
+				c.queue([{
+					url: this.match.dataStatisticsUrl,
+					callback: (error, res, done) => {
+						if (error) {
+							return
+						}
+
+						const $ = res.$;
+						const dataStatisticsHtml1 = $(".gamecenter_content_l .table_list_live").eq(0).html()
+						const dataStatisticsHtml2 = $(".gamecenter_content_l .table_list_live").eq(1).html()
+						const teamVS = $(".team_vs").html()
+						this.currentPanel.webview.html = this.generateHtml(liveHtml, teamVS + '' + dataStatisticsHtml1 + '' + dataStatisticsHtml2)
+						done()
+					}
+				}])
+				// return
+				// }
+
+				// this.currentPanel.webview.html = this.generateHtml(liveHtml)
+				this.timer = setTimeout(() => {
+					console.log('setPanelHtml');
+					!isFinish && this.setPanelHtml()
+				}, 3000)
 				done()
 			}
 		}])

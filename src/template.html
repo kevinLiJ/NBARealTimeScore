@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40KB7DJ6K5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-40KB7DJ6K5');
-    </script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+        }
+
         h2 {
             padding: 0;
             margin: 0;
@@ -44,7 +43,7 @@
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            padding-top: 20px;
         }
 
         .team_a,
@@ -70,11 +69,38 @@
         .about_fonts p {
             margin-right: 20px;
         }
+
+        .box {
+            display: flex;
+        }
+
+        .box>.left {
+            flex: 4;
+            height: 97vh;
+            overflow-y: auto;
+        }
+
+        .box>.right {
+            flex: 3;
+            margin-left: 10px;
+            height: 97vh;
+            overflow-y: auto;
+        }
     </style>
 </head>
 
 <body>
-    ${dataStatisticsHtml}
+    <div class="box">
+        <div class="left">
+            ${dataStatisticsHtml}
+        </div>
+        <div class="right">
+            <table>
+                ${liveHtml}
+            </table>
+        </div>
+    </div>
+
     <br>
     <table>
         <!-- <tbody>
@@ -112,7 +138,7 @@
 
             
         </tbody> -->
-        ${liveHtml}
+
     </table>
 </body>
 
