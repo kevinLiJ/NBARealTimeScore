@@ -33,21 +33,21 @@ function activate(context) {
 		if(!getTimer()) {
 			getNBAInfo((text) => {
 				statusBarItem.text = text
-				showGameQuickPick()
+				showGameQuickPick(context)
 			})
 		}else {
-			showGameQuickPick()
+			showGameQuickPick(context)
 		}
 	}));
 
-	function showGameQuickPick(){
+	function showGameQuickPick(context){
 		// 选项中只包括直播中或直播完的比赛，不包括未开始的
 		let matchesList = getMatches().filter(match => match.matchStatus !== 'PENDING')
 		// 有比赛但是直播页对象为空时，
 		if (matchesList.length !== 0 && Object.keys(getLivePagesInfo).length === 0) {
 			// 根据比赛列表初始化直播页
 			matchesList.map(match => {
-				getLivePagesInfo[match.matchTitle] = new getLivePage(match)
+				getLivePagesInfo[match.matchTitle] = new getLivePage(context,match)
 			})
 		}
 		

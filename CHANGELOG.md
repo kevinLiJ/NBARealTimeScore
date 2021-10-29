@@ -18,13 +18,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 
 ## [1.0.0] 
-### add
+### Added
 - 添加试试文字直播
 - 添加赛后数据统计
 - 彩蛋，自行探索
 
 ## [1.0.1] 
-### add
+### Added
 - 添加无比赛提醒
 
 ## [1.0.2] 
@@ -36,3 +36,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Changed
 - 增加比赛结果信息
 - 细节优化
+
+## [2.0.0] 
+### Added
+- 全新界面改版
+  - 高清NBA背景，且支持手动切换
+- 使用vuejs，在刷新页面的情况下刷新数据

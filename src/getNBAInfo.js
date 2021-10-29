@@ -19,7 +19,7 @@ function getNBAInfo(callback) {
 					let matchesInfoList = []
 					const matches = $(".list_box")
 					// console.log(matches.length);
-					if(matches.length === 0){
+					if (matches.length === 0) {
 						callback('今日没有比赛喔 -_-')
 						done()
 						return
@@ -32,16 +32,16 @@ function getNBAInfo(callback) {
 							isAllFinish = false
 						}
 						// 排除异常的比赛
-						if(!match.liveUrl) {
+						if (!match.liveUrl) {
 							continue
 						}
 						matchesList.push(match)
-						
+
 						matchesInfoList.push(`${match.matchTitle} ${match.score ? `(${match.score})` : ''}`)
 					}
 					const matchesInfoStr = matchesInfoList.join('  ')
 					// 把所有比赛的比分信息拼接成字符串，传给CB，用于显示在左下角菜单栏
-					callback(matchesInfoStr.length > 100 ? matchesInfoStr.slice(0,70) + '...' : matchesInfoStr)
+					callback(matchesInfoStr.length > 100 ? matchesInfoStr.slice(0, 70) + '...' : matchesInfoStr)
 				}
 				done()
 				// 如果比赛全部结束，则停止获取比赛信息
