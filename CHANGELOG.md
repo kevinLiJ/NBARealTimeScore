@@ -42,3 +42,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - 全新界面改版
   - 高清NBA背景，且支持手动切换
 - 使用vuejs，在刷新页面的情况下刷新数据
+
+## [2.0.1] 
+### Changed
+- 删除插件快捷键，避免冲突
+- 默认为透明背景，保证大家安心的低调摸鱼
