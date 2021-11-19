@@ -38,12 +38,6 @@
 				"title": "Get a live text list"
 			}
 		],
-		"keybindings": [
-			{
-				"command": "extension.NBARealTimeScore",
-				"key": "ctrl+shift+l"
-			}
-		],
 		"menus": {
 			"editor/context": [
 				{

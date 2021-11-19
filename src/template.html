@@ -19,6 +19,7 @@
             <div class="bg-list-main">
                 <!-- <img v-for="img in imgList" :src="img" alt="" @click="switchBg(img)"> -->
                 <!-- <img src="img" alt="" @click="switchBg(img)"> -->
+                <div  @click="switchBg()">透明背景</div>
 
                 <img src="${img1}" alt="" @click="switchBg('${img1}')">
                 <img src="${img2}" alt="" @click="switchBg('${img2}')">
@@ -95,9 +96,6 @@
                 // imgList: JSON.parse(imgList)
             },
             mounted() {
-                setTimeout(() => {
-                    $('.box').addClass('fade-in')
-                }, 1500)
 
                 window.addEventListener('message', event => {
                     const message = event.data; // The JSON data our extension sent
@@ -117,6 +115,10 @@
                     this.refreshBg(src)
                 },
                 refreshBg(src) {
+                    if(!src){
+                        $('.bg').css('background', 'none')
+                        return
+                    }
                     $('.bg').css('backgroundImage', `url(${src})`)
 
                     $('.box').css('opacity', 0).removeClass('fade-in')
@@ -124,7 +126,7 @@
                     $('.bg').removeClass('bounce-in-top')
                     setTimeout(() => {
                         $('.bg').addClass('bounce-in-top')
-                    })
+                    },60)
 
                     setTimeout(() => {
                         $('.box').addClass('fade-in')
